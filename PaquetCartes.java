@@ -2,42 +2,43 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class PaquetCartes {
-    private String listCartes;
-    private int size;
+  private String listCartes;
+  private int size;
 
-    public PaquetCartes(String listCartes, int size){
-        this.listCartes = listCartes;
-        this.size = size;
+  public PaquetCartes(String listCartes, int size) {
+    this.listCartes = listCartes;
+    this.size = size;
+  }
+
+  public static void melanger(ArrayList<Cartes> paquet) {
+    Random random = new Random();
+
+    for (int i = 0; i < paquet.size(); i++) {
+      int j = random.nextInt(paquet.size());
+      Cartes carte = paquet.get(i);
+      Cartes randomCarte = paquet.get(j);
+
+      paquet.set(i, randomCarte);
+      paquet.set(j, carte);
     }
+    System.out.println("After: ");
+    System.out.println(paquet);
+  }
 
-    public static void melanger(ArrayList<Cartes> paquet){
-        Random random = new Random();
+  public String getListCartes() {
+    return listCartes;
+  }
 
-        for(int i = 0; i < paquet.size(); i++){
-            int j = random.nextInt(paquet.size());
-            Cartes currCard = paquet.get(i);
-            Cartes randomCard = paquet.get(j);
+  public void setListCartes(String listCartes) {
+    this.listCartes = listCartes;
+  }
 
-            paquet.set(i, randomCard);
-            paquet.set(j, currCard);
-        }
-        System.out.println(paquet);
-    }
+  public int getSize() {
+    return size;
+  }
 
-	public String getListCartes() {
-		return listCartes;
-	}
-
-	public void setListCartes(String listCartes) {
-		this.listCartes = listCartes;
-	}
-
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
-	}
+  public void setSize(int size) {
+    this.size = size;
+  }
 
 }

@@ -3,6 +3,6 @@ public class Hand {
    private String nom;
    private int nbCartes;
    private String listCartes;
+
    
-   //
 }

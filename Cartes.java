@@ -1,32 +1,41 @@
 import java.util.ArrayList;
 
-public class Cartes {
-    static String[] Valeur = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-    static String[] Type = {" carreau", " cœur", "pique", "trèfle"};
-    static ArrayList<Cartes> paquet = new ArrayList<>();
+  public class Cartes {
+  static String[] Valeur = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+  static String[] Type = { "carreau", "cœur", "pique", "trèfle" };
+  static ArrayList<Cartes> paquet = new ArrayList<>();
 
-    String carteType;
-    String carteValue;
+  String carteType;
+  String  carteValue;
 
-    public Cartes(String carteType, String carteValue) {
-        this.carteType = carteType;
-        this.carteValue = carteValue;
+  public Cartes(String carteType, String carteValue) {
+    this.carteType = carteType;
+    this.carteValue = carteValue;
+  }
+
+  public String toString() {
+    return "[" + carteType + "|" + carteValue + "]";
+  }
+
+  public static void buildpaquet() {
+    for (int i = 0; i < Valeur.length; i++) {
+      for (int j = 0; j < Type.length; j++) {
+        Cartes card = new Cartes(Type[j], Valeur[i]);
+        paquet.add(card);
+      }
     }
 
-    public String toString() {
-        return "[" + carteType + "|" + carteValue + "]";
+    System.out.println(paquet);
+  }
+
+  public static int getValeur(String carteValue){
+    if(carteValue.equals("A") || carteValue.equals("J") || carteValue.equals("Q") ||carteValue.equals("K")){
+      if(carteValue.equals("A")){
+        return 1;
+      }
+      return 10;
     }
-
-    public static void buildpaquet() {
-        for (int i = 0; i < Valeur.length; i++) {
-            for (int j = 0; j < Type.length; j++) {
-                Cartes card = new Cartes(Type[j], Valeur[i]);
-                paquet.add(card);
-            }
-        }
-
-        System.out.println(paquet);
-    }
-
+    return Integer.parseInt(carteValue);
+  }
 
 }
