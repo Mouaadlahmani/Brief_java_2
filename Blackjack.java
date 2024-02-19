@@ -6,8 +6,8 @@ public class Blackjack {
   public static void demarerPartie() {
 	Joueur.username="Joueur";
 	
-	if (Joueur.getSolde() == 0) {
-        System.out.println("\nVous n'avez plus de fonds pour jouer.");
+	if (Joueur.solde == 0) {
+        System.out.println("\nVous n'avez plus de juton pour jouer.");
         return;
     }
 	Joueur.PlacerMise();
@@ -20,8 +20,8 @@ public class Blackjack {
 	Cartes.buildpaquet();
 	PaquetCartes.melanger(Cartes.paquet);
 	Personne.tirerCarte();
-	Joueur.hitOrStand();
-	Croupier.HitCroupier();
+	Joueur.JouerTourJoueur();
+	Croupier.JouerTourCroupier();
 	Croupier.ComparerMain();
   }
 }

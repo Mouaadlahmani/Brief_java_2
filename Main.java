@@ -10,6 +10,7 @@ public class Main {
       System.out.println("-------Menu Principal------");
       System.out.println("1- Commencez à jouer");
       System.out.println("2- Consulter mon solde de juton");
+      System.out.println("0- Quitter");
       System.out.print("Entrez votre choix: ");
       Scanner scan = new Scanner(System.in);
       choix = scan.nextInt();
@@ -18,11 +19,11 @@ public class Main {
       break;
       case 2 : System.out.println("\nVotre solde: "+Joueur.solde);
       break;
+      case 0 : System.out.println("Jeu terminé.");
+      break;
       default : System.out.println("Choix invalide");
       break;
       }
       }while(choix!=0);
-     
-
   }
 }

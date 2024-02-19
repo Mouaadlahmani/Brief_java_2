@@ -18,7 +18,7 @@ static String username;
        mise = scan.nextInt();
  }
   
-  public static void hitOrStand() {
+  public static void JouerTourJoueur() {
 	  int hit;
 	  do{
 		  System.out.print("1-Hit | 2-Stand: ");
@@ -27,30 +27,29 @@ static String username;
 		  switch (hit) {
 		  case 1 : HitJoueur();
 		  		   break;
-		  case 2 : System.out.println("\nCroupier Main: ");
+		  case 2 : System.out.println("\nTour coupier: ");
+			       System.out.println("Croupier Main: ");
 		  		   System.out.print(Croupier.hiddenCard+", ");
 		  		   System.out.println(Croupier.croupierMain);
 		  		   System.out.println(Croupier.croupierSum);
-		  		   Croupier.HitCroupier();
+		  		   Croupier.JouerTourCroupier();
 		  		   break;
 		  default : System.out.println("Choix invalide.");
 		  		   break;
 		  }
-	  }while(hit!=2);
+	  }while( hit!=2 && JoueurSum < 21);
 	  
 	  
   }
   
   public static void HitJoueur() {
-	  for (int i = 0; i < 1; i++) {
-	        Cartes carte = Cartes.paquet.remove(Cartes.paquet.size() - 1);
+	  		Cartes carte = Cartes.paquet.remove(Cartes.paquet.size() - 1);
 	        JoueurSum += carte.getValeur(carte.carteValue);
 	        JoueurMain.add(carte);
-	      }
+	        
 	      System.out.println("\n"+Joueur.username+" Main");
 	      System.out.println(JoueurMain);
 	      System.out.println(JoueurSum);
-	
   }
   
   

@@ -31,7 +31,6 @@ public class Personne {
 
     for (int i = 0; i < 2; i++) {
       carte = Cartes.paquet.remove(Cartes.paquet.size() - 1);
-      carte = Cartes.paquet.remove(Cartes.paquet.size() - 1);
       Joueur.JoueurSum += carte.getValeur(carte.carteValue);
       Joueur.JoueurMain.add(carte);
     }

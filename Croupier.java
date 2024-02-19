@@ -18,13 +18,17 @@ static Cartes hiddenCard;
     croupierMain.add(carte);
   }
 
-  public static void HitCroupier() {
+  public static void JouerTourCroupier() {
+	       System.out.println("\nTour coupier: ");
+	  	   System.out.println("Croupier Main: ");
+		   System.out.print(Croupier.hiddenCard+", ");
+		   System.out.println(Croupier.croupierMain);
+		   System.out.println(Croupier.croupierSum);
 	  while(croupierSum<17){
-		  for (int i = 0; i < 1; i++) {
 		        Cartes carte = Cartes.paquet.remove(Cartes.paquet.size() - 1);
 		        croupierSum += carte.getValeur(carte.carteValue);
 		        croupierMain.add(carte);
-		      }
+		        
 		      System.out.println("\nCroupier: ");
 		      System.out.println(croupierMain);
 		      System.out.println(croupierSum);
